@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DESIGN YOURSELF | Professional Painting Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+}
+
+/* TOP BAR */
+.top-bar{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:#000;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    color:#ff9800;
+}
+
+/* MENU */
+.menu-btn{
+    font-size:28px;
+    cursor:pointer;
+}
+
+.menu-content{
+    display:none;
+    position:absolute;
+    right:30px;
+    top:60px;
+    background:#1e1e1e;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.menu-content a{
+    display:block;
+    padding:12px 25px;
+    text-decoration:none;
+    color:white;
+}
+
+/* HEADER */
+header{
+    margin-top:70px;
+    height:70vh;
+    background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url('https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+}
+
+header h1{
+    font-size:45px;
+    color:#ff9800;
+}
+
+.book-btn{
+    margin-top:20px;
+    background:#ff9800;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* SECTIONS */
+section{
+    padding:80px 20px;
+    text-align:center;
+}
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.card{
+    background:#1e1e1e;
+    padding:25px;
+    border-radius:15px;
+}
+
+/* CONTACT */
+.contact{
+    background:#000;
+}
+
+.contact a{
+    display:inline-block;
+    margin-top:10px;
+    background:#ff9800;
+    padding:10px 20px;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+}
+
+/* BOOKING MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:#1e1e1e;
+    padding:30px;
+    border-radius:15px;
+    width:90%;
+    max-width:400px;
+}
+
+.modal-content input, 
+.modal-content textarea, 
+.modal-content select{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:8px;
+}
+
+.modal-content button{
+    background:#ff9800;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    padding:15px;
+    border-radius:50%;
+    font-size:22px;
+    text-decoration:none;
+    color:white;
+}
+
+footer{
+    background:#000;
+    padding:15px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <div class="logo">🎨 DESIGN YOURSELF</div>
+    <div>
+        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+        <div class="menu-content" id="menu">
+            <a href="#">Home</a>
+            <a href="#services">Service</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</div>
+
+<header>
+    <h1>Professional Painting Services</h1>
+    <p>House • Building • Flats • Texture Design</p>
+    <button class="book-btn" onclick="openModal()">Book Now</button>
+</header>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card"><h3>Interior Painting</h3></div>
+        <div class="card"><h3>Exterior Painting</h3></div>
+        <div class="card"><h3>Texture Design</h3></div>
+        <div class="card"><h3>Waterproofing</h3></div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <h3>📞 8051943884</h3>
+    <p>📧 mdfarmanali78612@gmail.com</p>
+    <a href="tel:8051943884">Call Now</a>
+    <a href="mailto:mdfarmanali78612@gmail.com">Send Email</a>
+</section>
+
+<footer>
+© 2026 DESIGN YOURSELF | All Rights Reserved
+</footer>
+
+<a class="whatsapp" href="https://wa.me/918051943884" target="_blank">💬</a>
+
+<!-- BOOKING FORM MODAL -->
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <h3>Book Painting Service</h3>
+        <form action="mailto:mdfarmanali78612@gmail.com" method="post" enctype="text/plain">
+            <input type="text" placeholder="Your Name" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <select>
+                <option>Select Service</option>
+                <option>Interior Painting</option>
+                <option>Exterior Painting</option>
+                <option>Texture Design</option>
+                <option>Waterproofing</option>
+            </select>
+            <textarea placeholder="Your Address / Requirement"></textarea>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="closeModal()">Close</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function toggleMenu(){
+    var menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function openModal(){
+    document.getElementById("bookingModal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("bookingModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+<section id="booking">
+    <h2>Book Our Service</h2>
+    <p>Click below to book online instantly</p>
+    <a href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank">
+        <button style="padding:12px 25px; background:#ff9800; border:none; border-radius:25px; color:white; font-weight:bold;">
+            Book Online Now
+        </button>
+    </a>
+</section>
+<!-- OUR WORKS SECTION -->
+<section id="works">
+    <h2 style="text-align:center; margin-bottom:30px;">Our Works</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; padding:0 20px;">
+        
+        <div>
+            <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4" style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:10px;">Modern Living Room Painting</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:10px;">Exterior Building Finish</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:10px;">Premium Wall Texture</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="gallery">
+    <h2 style="text-align:center; margin-bottom:30px; color:#ff9800;">Gallery</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; padding:0 20px;">
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
+                 style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:10px;">Living Room Painting</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1583845112203-454d7a6a1d6c?auto=format&fit=crop&w=800&q=80" 
+                 style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:10px;">Exterior Wall Finish</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
+                 style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:10px;">Texture Design</p>
+        </div>
+
+        <div>
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" 
+                 style="width:100%; border-radius:12px;">
+            <p style="text-align:center; margin-top:10px;">Premium Wall Painting</p>
+        </div>
+
+    </div>
+</section>
+https://images.unsplash.com/photo-1605902711622-cfb43c4431b5?auto=format&fit=crop&w=200&q=80
+
+}
