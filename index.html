@@ -299,6 +299,42 @@ function closeModal(){
   btn.onclick = () => modal.style.display = 'block';
   close.onclick = () => modal.style.display = 'none';
   window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
+</script><!-- Modal for Google Form -->
+<div id="formModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index:1000;">
+  <div style="
+      position:relative; 
+      width:80%; max-width:800px; 
+      height:80%; 
+      margin:5% auto; 
+      background:white; 
+      border-radius:15px; 
+      overflow:hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  ">
+    <!-- Close Button -->
+    <span id="closeModal" style="
+        position:absolute; 
+        top:10px; right:20px; 
+        cursor:pointer; 
+        font-size:28px; 
+        font-weight:bold; 
+        color:#FFD700;">
+      &times;
+    </span>
+
+    <!-- Embedded Google Form -->
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfAI6mcv5n3D0XeS8K6rsDFjy4Rh7lDpmgdNfApA18YAsSxw/viewform?embedded=true" 
+            width="100%" height="100%" frameborder="0">Loading…</iframe>
+  </div>
+</div><script>
+  // Replace 'bookNowBtn' with your actual button ID
+  const btn = document.getElementById('bookNowBtn'); 
+  const modal = document.getElementById('formModal');
+  const close = document.getElementById('closeModal');
+
+  btn.onclick = () => modal.style.display = 'block';
+  close.onclick = () => modal.style.display = 'none';
+  window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
 </script></body>
 </html>
 <section id="booking">
@@ -367,5 +403,6 @@ function closeModal(){
 https://images.unsplash.com/photo-1605902711622-cfb43c4431b5?auto=format&fit=crop&w=200&q=80
 
 }
+
 
 
