@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="google-site-verification" content="2hZrHDurtucWLegE1-If69eqWbitM2YinbCNaNz9YHo" />
+<head>
 <title>DESIGN YOURSELF | Professional Painting Services</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -82,13 +82,18 @@ header h1{
 
 .book-btn{
     margin-top:20px;
-    background:#ff9800;
+    background:#0D47A1; /* Royal Blue */
     padding:12px 30px;
     border:none;
     border-radius:30px;
-    color:white;
+    color:#FFD700; /* Gold */
     font-weight:bold;
     cursor:pointer;
+    transition:0.3s;
+}
+
+.book-btn:hover{
+    transform:scale(1.05);
 }
 
 /* SECTIONS */
@@ -136,34 +141,48 @@ section{
     background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
+    animation: fadeIn 0.3s ease;
+    z-index:10000;
 }
 
 .modal-content{
     background:#1e1e1e;
-    padding:30px;
-    border-radius:15px;
     width:90%;
-    max-width:400px;
+    max-width:800px;
+    height:80%;
+    border-radius:15px;
+    overflow:hidden;
+    position:relative;
+    transform:translateY(100%);
+    animation: slideUp 0.4s forwards;
 }
 
-.modal-content input, 
-.modal-content textarea, 
-.modal-content select{
+.modal-content iframe{
     width:100%;
-    padding:10px;
-    margin:10px 0;
+    height:100%;
     border:none;
-    border-radius:8px;
 }
 
-.modal-content button{
-    background:#ff9800;
-    padding:10px 20px;
-    border:none;
-    border-radius:20px;
-    color:white;
-    font-weight:bold;
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:20px;
     cursor:pointer;
+    font-size:28px;
+    font-weight:bold;
+    color:#FFD700;
+    z-index:1001;
+}
+
+/* Animations */
+@keyframes slideUp{
+    from{transform:translateY(100%);}
+    to{transform:translateY(0);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 /* WHATSAPP */
@@ -225,32 +244,19 @@ footer{
     <a href="mailto:mdfarmanali78612@gmail.com">Send Email</a>
 </section>
 
+<!-- BOOKING FORM MODAL WITH GOOGLE FORM -->
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfAI6mcv5n3D0XeS8K6rsDFjy4Rh7lDpmgdNfApA18YAsSxw/viewform?embedded=true"></iframe>
+    </div>
+</div>
+
 <footer>
 © 2026 DESIGN YOURSELF | All Rights Reserved
 </footer>
 
 <a class="whatsapp" href="https://wa.me/918051943884" target="_blank">💬</a>
-
-<!-- BOOKING FORM MODAL -->
-<div class="modal" id="bookingModal">
-    <div class="modal-content">
-        <h3>Book Painting Service</h3>
-        <form action="mailto:mdfarmanali78612@gmail.com" method="post" enctype="text/plain">
-            <input type="text" placeholder="Your Name" required>
-            <input type="tel" placeholder="Phone Number" required>
-            <select>
-                <option>Select Service</option>
-                <option>Interior Painting</option>
-                <option>Exterior Painting</option>
-                <option>Texture Design</option>
-                <option>Waterproofing</option>
-            </select>
-            <textarea placeholder="Your Address / Requirement"></textarea>
-            <button type="submit">Submit</button>
-            <button type="button" onclick="closeModal()">Close</button>
-        </form>
-    </div>
-</div>
 
 <script>
 function toggleMenu(){
@@ -265,107 +271,32 @@ function openModal(){
 function closeModal(){
     document.getElementById("bookingModal").style.display = "none";
 }
+
+// Close modal if clicking outside content
+window.onclick = function(event) {
+    var modal = document.getElementById("bookingModal");
+    if(event.target == modal){
+        modal.style.display = "none";
+    }
+}
 </script>
 
-<!-- Modal for Google Form -->
-<div id="formModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index:1000;">
-  <div style="
-      position:relative; 
-      width:80%; max-width:800px; 
-      height:80%; 
-      margin:5% auto; 
-      background:white; 
-      border-radius:15px; 
-      overflow:hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  ">
-    <span id="closeModal" style="
-        position:absolute; 
-        top:10px; right:20px; 
-        cursor:pointer; 
-        font-size:28px; 
-        font-weight:bold; 
-        color:#FFD700;">
-      &times;
-    </span>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfAI6mcv5n3D0XeS8K6rsDFjy4Rh7lDpmgdNfApA18YAsSxw/viewform?embedded=true" 
-            width="100%" height="100%" frameborder="0">Loading…</iframe>
-  </div>
-</div><script>
-  const btn = document.getElementById('bookNowBtn'); // Your existing button ID
-  const modal = document.getElementById('formModal');
-  const close = document.getElementById('closeModal');
-
-  btn.onclick = () => modal.style.display = 'block';
-  close.onclick = () => modal.style.display = 'none';
-  window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
-</script><!-- Modal for Google Form -->
-<div id="formModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index:1000;">
-  <div style="
-      position:relative; 
-      width:80%; max-width:800px; 
-      height:80%; 
-      margin:5% auto; 
-      background:white; 
-      border-radius:15px; 
-      overflow:hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  ">
-    <!-- Close Button -->
-    <span id="closeModal" style="
-        position:absolute; 
-        top:10px; right:20px; 
-        cursor:pointer; 
-        font-size:28px; 
-        font-weight:bold; 
-        color:#FFD700;">
-      &times;
-    </span>
-
-    <!-- Embedded Google Form -->
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfAI6mcv5n3D0XeS8K6rsDFjy4Rh7lDpmgdNfApA18YAsSxw/viewform?embedded=true" 
-            width="100%" height="100%" frameborder="0">Loading…</iframe>
-  </div>
-</div><script>
-  // Replace 'bookNowBtn' with your actual button ID
-  const btn = document.getElementById('bookNowBtn'); 
-  const modal = document.getElementById('formModal');
-  const close = document.getElementById('closeModal');
-
-  btn.onclick = () => modal.style.display = 'block';
-  close.onclick = () => modal.style.display = 'none';
-  window.onclick = (e) => { if(e.target == modal) modal.style.display = 'none'; }
-</script></body>
-</html>
-<section id="booking">
-    <h2>Book Our Service</h2>
-    <p>Click below to book online instantly</p>
-    <a href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE" target="_blank">
-        <button style="padding:12px 25px; background:#ff9800; border:none; border-radius:25px; color:white; font-weight:bold;">
-            Book Online Now
-        </button>
-    </a>
-</section>
 <!-- OUR WORKS SECTION -->
 <section id="works">
     <h2 style="text-align:center; margin-bottom:30px;">Our Works</h2>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; padding:0 20px;">
-        
         <div>
             <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:10px;">Modern Living Room Painting</p>
         </div>
-
         <div>
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:10px;">Exterior Building Finish</p>
         </div>
-
         <div>
             <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:10px;">Premium Wall Texture</p>
         </div>
-
     </div>
 </section>
 
@@ -373,36 +304,24 @@ function closeModal(){
 <section id="gallery">
     <h2 style="text-align:center; margin-bottom:30px; color:#ff9800;">Gallery</h2>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; padding:0 20px;">
-
         <div>
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
-                 style="width:100%; border-radius:12px;">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:10px;">Living Room Painting</p>
         </div>
-
         <div>
-            <img src="https://images.unsplash.com/photo-1583845112203-454d7a6a1d6c?auto=format&fit=crop&w=800&q=80" 
-                 style="width:100%; border-radius:12px;">
+            <img src="https://images.unsplash.com/photo-1583845112203-454d7a6a1d6c?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:10px;">Exterior Wall Finish</p>
         </div>
-
         <div>
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
-                 style="width:100%; border-radius:12px;">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:10px;">Texture Design</p>
         </div>
-
         <div>
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" 
-                 style="width:100%; border-radius:12px;">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
             <p style="text-align:center; margin-top:10px;">Premium Wall Painting</p>
         </div>
-
     </div>
 </section>
-https://images.unsplash.com/photo-1605902711622-cfb43c4431b5?auto=format&fit=crop&w=200&q=80
 
-}
-
-
-
+</body>
+</html>
