@@ -1,211 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DESIGN YOURSELF | Professional Painting Services in Bengaluru</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DESIGN YOURSELF</title>
 
 <style>
 
-/* BODY */
 body{
-    background:#0f0f0f;
-    color:white;
     margin:0;
     font-family:Arial, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #3b5998, #4b79a1);
+    color:white;
+    overflow-x:hidden;
 }
 
-/* SCROLLING TEXT */
-.scrolling-text {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  animation: scrollText 15s linear infinite;
-  font-weight: bold;
-  font-size: 16px;
-  background:#0D47A1;
-  color:#FFD700;
-  padding:8px 0;
-  text-align:center;
+/* Running Title */
+.scrolling-text{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:40px;
+    background:#0D47A1;
+    color:#FFD700;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    z-index:2000;
 }
 
-@keyframes scrollText {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+.scrolling-text .track{
+    white-space:nowrap;
+    display:inline-block;
+    animation: ticker 20s linear infinite;
+    font-weight:bold;
 }
 
-/* TOP BAR */
+@keyframes ticker{
+    from { transform:translateX(100%); }
+    to { transform:translateX(-100%); }
+}
+
+/* Top Contact Bar */
 .top-bar{
     position:fixed;
-    width:100%;
     top:40px;
-    background:#000;
-    padding:15px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    width:100%;
+    background:#1565C0;
+    padding:8px;
+    text-align:center;
     z-index:1000;
+    font-size:14px;
 }
 
-.logo img{
-    width:80px;
+/* Main Section */
+.main{
+    margin-top:120px;
+    text-align:center;
+    padding:20px;
 }
 
-/* MENU */
-.menu-btn{
-    font-size:28px;
-    cursor:pointer;
+/* Logo */
+.logo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:4px solid gold;
+    object-fit:cover;
 }
 
-.menu-content{
-    display:none;
-    position:absolute;
-    right:30px;
-    top:60px;
-    background:#1e1e1e;
-    border-radius:8px;
-    overflow:hidden;
-}
-
-.menu-content a{
-    display:block;
-    padding:12px 25px;
-    text-decoration:none;
-    color:white;
-}
-
-/* HEADER */
-header{
-    margin-top:150px;
-    height:70vh;
-    background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    url('https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+/* Sections */
+.section{
+    padding:40px 20px;
     text-align:center;
 }
 
-header h1{
-    font-size:45px;
-    color:#ff9800;
+/* Gallery */
+.gallery img{
+    width:250px;
+    margin:10px;
+    border-radius:10px;
 }
 
-.book-btn{
-    margin-top:20px;
-    background:#0D47A1;
-    padding:12px 30px;
+/* Button */
+button{
+    padding:10px 20px;
+    background:gold;
     border:none;
-    border-radius:30px;
-    color:#FFD700;
+    border-radius:5px;
     font-weight:bold;
     cursor:pointer;
 }
 
-/* SECTIONS */
-section{
-    padding:80px 20px;
-    text-align:center;
-}
-
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-    gap:20px;
-    margin-top:30px;
-}
-
-.card{
-    background:#1e1e1e;
-    padding:25px;
-    border-radius:15px;
-}
-
-/* CONTACT */
-.contact{
-    background:#000;
-}
-
-.contact a{
-    display:inline-block;
-    margin-top:10px;
-    background:#ff9800;
-    padding:10px 20px;
-    border-radius:25px;
-    color:white;
-    text-decoration:none;
-}
-
-/* IMAGE GRID */
-.image-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-    gap:20px;
-    padding:0 20px;
-}
-
-.image-grid img{
-    width:100%;
-    border-radius:12px;
-}
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.8);
-    justify-content:center;
-    align-items:center;
-    z-index:10000;
-}
-
-.modal-content{
-    background:#1e1e1e;
-    width:90%;
-    max-width:800px;
-    height:80%;
-    border-radius:15px;
-    overflow:hidden;
-    position:relative;
-}
-
-.modal-content iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-
-.close-btn{
-    position:absolute;
-    top:10px;
-    right:20px;
-    cursor:pointer;
-    font-size:28px;
-    color:#FFD700;
-}
-
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    padding:15px;
-    border-radius:50%;
-    font-size:22px;
-    text-decoration:none;
-    color:white;
-}
-
+/* Footer */
 footer{
-    background:#000;
-    padding:15px;
+    background:#0D47A1;
+    padding:20px;
     text-align:center;
 }
 
@@ -214,98 +104,46 @@ footer{
 
 <body>
 
+<!-- Running Title -->
 <div class="scrolling-text">
-Welcome to DESIGN YOURSELF – Interior & Exterior Painting | Waterproofing | Textile Services
+  <div class="track">
+    Welcome to DESIGN YOURSELF – Interior & Exterior Painting | Texture Design | Waterproofing | Premium Finish
+  </div>
 </div>
 
+<!-- Contact Bar -->
 <div class="top-bar">
-    <div class="logo">
-        <img src="mylogo.png.jpeg" alt="Logo">
-    </div>
-    <div>
-        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
-        <div class="menu-content" id="menu">
-            <a href="#">Home</a>
-            <a href="#services">Service</a>
-            <a href="#works">Our Works</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </div>
+📞 8051943884 | 📧 mdfarmanali78612@gmail.com
 </div>
 
-<header>
-  <h1>DESIGN YOUTSELF</h1>
-<h2>Professional Painting Services</h2>
-    <p>House • Building • Flats • Texture Design</p>
-    <button class="book-btn" onclick="openModal()">Book Now</button>
-</header>
-
-<section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="card"><h3>Interior Painting</h3></div>
-        <div class="card"><h3>Exterior Painting</h3></div>
-        <div class="card"><h3>Texture Design</h3></div>
-        <div class="card"><h3>Waterproofing</h3></div>
-    </div>
-</section>
-
-<section id="works">
-    <h2>Our Works</h2>
-    <div class="image-grid">
-        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
-    </div>
-</section>
-
-<section id="gallery">
-    <h2 style="color:#ff9800;">Gallery</h2>
-    <div class="image-grid">
-        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6">
-        <img src="https://images.unsplash.com/photo-1583845112203-454d7a6a1d6c">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c">
-        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7">
-    </div>
-</section>
-
-<section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <h3>📞 8051943884</h3>
-    <p>📧 mdfarmanali78612@gmail.com</p>
-    <a href="tel:8051943884">Call Now</a>
-    <a href="mailto:mdfarmanali78612@gmail.com">Send Email</a>
-</section>
-
-<div class="modal" id="bookingModal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfAI6mcv5n3D0XeS8K6rsDFjy4Rh7lDpmgdNfApA18YAsSxw/viewform?embedded=true"></iframe>
-    </div>
+<!-- Main Section -->
+<div class="main">
+    <img src="logo.png" class="logo" alt="Logo">
+    <h1>DESIGN YOURSELF</h1>
+    <p>Professional Interior & Exterior Painting Services</p>
+    <button onclick="window.location.href='YOUR_GOOGLE_FORM_LINK'">
+        Book Now
+    </button>
 </div>
 
+<!-- Our Work -->
+<div class="section">
+    <h2>Our Work</h2>
+    <p>We provide high-quality interior painting, exterior painting, texture design and waterproofing solutions with premium finish.</p>
+</div>
+
+<!-- Gallery -->
+<div class="section gallery">
+    <h2>Gallery</h2>
+    <img src="work1.jpg" alt="">
+    <img src="work2.jpg" alt="">
+    <img src="work3.jpg" alt="">
+</div>
+
+<!-- Footer -->
 <footer>
 © 2026 DESIGN YOURSELF | All Rights Reserved
 </footer>
 
-<a class="whatsapp" href="https://wa.me/918051943884" target="_blank">💬</a>
-
-<script>
-function toggleMenu(){
-    var menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-function openModal(){
-    document.getElementById("bookingModal").style.display = "flex";
-}
-
-function closeModal(){
-    document.getElementById("bookingModal").style.display = "none";
-}
-</script>
-
 </body>
 </html>
-
