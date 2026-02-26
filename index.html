@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>DESIGN YOURSELF | Professional Painting Services in bengaluru</title>
+<title>DESIGN YOURSELF | Professional Painting Services in Bengaluru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 <style>
+
+/* BODY */
+body{
+    background:#0f0f0f;
+    color:white;
+    margin:0;
+    font-family:Arial, sans-serif;
+}
+
+/* SCROLLING TEXT */
 .scrolling-text {
   width: 100%;
   overflow: hidden;
@@ -12,21 +22,17 @@
   box-sizing: border-box;
   animation: scrollText 15s linear infinite;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
+  background:#0D47A1;
+  color:#FFD700;
+  padding:8px 0;
+  text-align:center;
 }
 
 @keyframes scrollText {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
-</style>
-
-body{
-    background:#0f0f0f;
-    color:white;
-}<div class="scrolling-text">
-  Welcome to DESIGN YOURSELF – Interior & Exterior Painting | Waterproofing | Textile Services
-</div>
 
 /* TOP BAR */
 .top-bar{
@@ -41,10 +47,8 @@ body{
     z-index:1000;
 }
 
-.logo{
-    font-size:22px;
-    font-weight:bold;
-    color:#ff9800;
+.logo img{
+    width:80px;
 }
 
 /* MENU */
@@ -72,7 +76,7 @@ body{
 
 /* HEADER */
 header{
-    margin-top:70px;
+    margin-top:120px;
     height:70vh;
     background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
     url('https://images.unsplash.com/photo-1581092583537-20d51b4b4f1b');
@@ -83,7 +87,6 @@ header{
     justify-content:center;
     align-items:center;
     text-align:center;
-    position:relative;
 }
 
 header h1{
@@ -93,11 +96,11 @@ header h1{
 
 .book-btn{
     margin-top:20px;
-    background:#0D47A1; /* Royal Blue */
+    background:#0D47A1;
     padding:12px 30px;
     border:none;
     border-radius:30px;
-    color:#FFD700; /* Gold */
+    color:#FFD700;
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
@@ -107,7 +110,7 @@ header h1{
     transform:scale(1.05);
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
     padding:80px 20px;
     text-align:center;
@@ -141,7 +144,7 @@ section{
     text-decoration:none;
 }
 
-/* BOOKING MODAL */
+/* MODAL */
 .modal{
     display:none;
     position:fixed;
@@ -152,7 +155,6 @@ section{
     background:rgba(0,0,0,0.8);
     justify-content:center;
     align-items:center;
-    animation: fadeIn 0.3s ease;
     z-index:10000;
 }
 
@@ -164,8 +166,6 @@ section{
     border-radius:15px;
     overflow:hidden;
     position:relative;
-    transform:translateY(100%);
-    animation: slideUp 0.4s forwards;
 }
 
 .modal-content iframe{
@@ -182,18 +182,6 @@ section{
     font-size:28px;
     font-weight:bold;
     color:#FFD700;
-    z-index:1001;
-}
-
-/* Animations */
-@keyframes slideUp{
-    from{transform:translateY(100%);}
-    to{transform:translateY(0);}
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
 }
 
 /* WHATSAPP */
@@ -214,13 +202,20 @@ footer{
     padding:15px;
     text-align:center;
 }
+
 </style>
 </head>
 
 <body>
 
+<div class="scrolling-text">
+Welcome to DESIGN YOURSELF – Interior & Exterior Painting | Waterproofing | Textile Services
+</div>
+
 <div class="top-bar">
-    <div class="logo"><img src="mylogo.png.jpeg" width="90"></div>
+    <div class="logo">
+        <img src="mylogo.png.jpeg" alt="Logo">
+    </div>
     <div>
         <div class="menu-btn" onclick="toggleMenu()">⋮</div>
         <div class="menu-content" id="menu">
@@ -255,7 +250,7 @@ footer{
     <a href="mailto:mdfarmanali78612@gmail.com">Send Email</a>
 </section>
 
-<!-- BOOKING FORM MODAL WITH GOOGLE FORM -->
+<!-- MODAL -->
 <div class="modal" id="bookingModal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -283,7 +278,6 @@ function closeModal(){
     document.getElementById("bookingModal").style.display = "none";
 }
 
-// Close modal if clicking outside content
 window.onclick = function(event) {
     var modal = document.getElementById("bookingModal");
     if(event.target == modal){
@@ -292,62 +286,5 @@ window.onclick = function(event) {
 }
 </script>
 
-<!-- OUR WORKS SECTION -->
-<section id="works">
-    <h2 style="text-align:center; margin-bottom:30px;">Our Works</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; padding:0 20px;">
-        <div>
-            <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4" style="width:100%; border-radius:12px;">
-            <p style="text-align:center; margin-top:10px;">Modern Living Room Painting</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" style="width:100%; border-radius:12px;">
-            <p style="text-align:center; margin-top:10px;">Exterior Building Finish</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae" style="width:100%; border-radius:12px;">
-            <p style="text-align:center; margin-top:10px;">Premium Wall Texture</p>
-        </div>
-    </div>
-</section>
-
-<!-- GALLERY SECTION -->
-<section id="gallery">
-    <h2 style="text-align:center; margin-bottom:30px; color:#ff9800;">Gallery</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; padding:0 20px;">
-        <div>
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
-            <p style="text-align:center; margin-top:10px;">Living Room Painting</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1583845112203-454d7a6a1d6c?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
-            <p style="text-align:center; margin-top:10px;">Exterior Wall Finish</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
-            <p style="text-align:center; margin-top:10px;">Texture Design</p>
-        </div>
-        <div>
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:12px;">
-            <p style="text-align:center; margin-top:10px;">Premium Wall Painting</p>
-        </div>
-    </div>
-</section>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
