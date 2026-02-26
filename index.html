@@ -13,6 +13,7 @@ body{
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color:white;
     overflow-x:hidden;
+    scroll-behavior:smooth;
 }
 
 /* Running Title */
@@ -50,6 +51,44 @@ body{
     text-align:center;
     z-index:1000;
     font-size:14px;
+}
+
+/* 3 Dot Menu */
+.menu-container{
+    position:fixed;
+    top:50px;
+    right:20px;
+    z-index:4000;
+}
+
+.menu-btn{
+    font-size:28px;
+    cursor:pointer;
+    background:none;
+    border:none;
+    color:#FFD700;
+}
+
+.dropdown{
+    display:none;
+    position:absolute;
+    right:0;
+    background:#0D47A1;
+    border:1px solid gold;
+    border-radius:8px;
+    overflow:hidden;
+    min-width:180px;
+}
+
+.dropdown a{
+    display:block;
+    padding:12px;
+    color:white;
+    text-decoration:none;
+}
+
+.dropdown a:hover{
+    background:#1565C0;
 }
 
 /* Main Section */
@@ -188,6 +227,20 @@ footer{
 
 <body>
 
+<!-- 3 Dot Menu -->
+<div class="menu-container">
+    <button class="menu-btn" onclick="toggleMenu()">⋮</button>
+    <div class="dropdown" id="dropdownMenu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#beforeafter">Before & After</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="https://forms.gle/qieRyCRLdDHqskfU7" target="_blank">Book Now</a>
+        <a href="https://wa.me/918051943884" target="_blank">WhatsApp</a>
+    </div>
+</div>
+
 <div class="scrolling-text">
   <div class="track">
     Welcome to DESIGN YOURSELF – Interior & Exterior Painting | Texture Design | Waterproofing | Premium Finish
@@ -198,7 +251,7 @@ footer{
 📞 8051943884 | 📧 mdfarmanali78612@gmail.com
 </div>
 
-<div class="main">
+<div class="main" id="home">
     <img src="logo.jpeg" class="logo">
     <h1>DESIGN YOURSELF</h1>
     <p class="gold-text">Transforming Spaces with Luxury Finishes</p>
@@ -208,29 +261,17 @@ footer{
     </button>
 </div>
 
-<div class="section">
+<div class="section" id="services">
     <h2 class="luxury-title">OUR PREMIUM SERVICES</h2>
     <div class="service-grid">
-        <div class="service-card">
-            <h3>Interior Painting</h3>
-            <p>Luxury smooth wall finishes.</p>
-        </div>
-        <div class="service-card">
-            <h3>Exterior Painting</h3>
-            <p>Weather-resistant durable coatings.</p>
-        </div>
-        <div class="service-card">
-            <h3>Texture Design</h3>
-            <p>Modern designer textures.</p>
-        </div>
-        <div class="service-card">
-            <h3>Waterproofing</h3>
-            <p>Terrace & bathroom protection solutions.</p>
-        </div>
+        <div class="service-card"><h3>Interior Painting</h3><p>Luxury smooth wall finishes.</p></div>
+        <div class="service-card"><h3>Exterior Painting</h3><p>Weather-resistant durable coatings.</p></div>
+        <div class="service-card"><h3>Texture Design</h3><p>Modern designer textures.</p></div>
+        <div class="service-card"><h3>Waterproofing</h3><p>Terrace & bathroom protection solutions.</p></div>
     </div>
 </div>
 
-<div class="section">
+<div class="section" id="beforeafter">
     <h2 class="luxury-title">BEFORE & AFTER</h2>
     <div class="slider-container">
         <img src="before.jpg">
@@ -239,40 +280,34 @@ footer{
     </div>
 </div>
 
-<div class="section gallery">
+<div class="section gallery" id="gallery">
     <h2 class="luxury-title">OUR WORK GALLERY</h2>
     <img src="work1.jpeg">
     <img src="work2.jpeg">
     <img src="work3.jpeg">
 </div>
 
-<div class="section">
+<div class="section" id="reviews">
     <h2 class="luxury-title">CUSTOMER REVIEWS</h2>
     <div class="service-grid">
-        <div class="service-card">
-            <p>"Excellent finishing and professional team!"</p>
-            <p class="gold-text">★★★★★</p>
-        </div>
-        <div class="service-card">
-            <p>"My home looks completely transformed."</p>
-            <p class="gold-text">★★★★★</p>
-        </div>
-        <div class="service-card">
-            <p>"Luxury quality and timely completion."</p>
-            <p class="gold-text">★★★★★</p>
-        </div>
+        <div class="service-card"><p>"Excellent finishing and professional team!"</p><p class="gold-text">★★★★★</p></div>
+        <div class="service-card"><p>"My home looks completely transformed."</p><p class="gold-text">★★★★★</p></div>
+        <div class="service-card"><p>"Luxury quality and timely completion."</p><p class="gold-text">★★★★★</p></div>
     </div>
 </div>
 
-<footer>
+<footer id="contact">
 © 2026 DESIGN YOURSELF | All Rights Reserved
 </footer>
 
-<a href="https://wa.me/918051943884" class="whatsapp-float" target="_blank">
-💬
-</a>
+<a href="https://wa.me/918051943884" class="whatsapp-float" target="_blank">💬</a>
 
 <script>
+function toggleMenu(){
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
 const slider = document.getElementById("slider");
 const afterImage = document.getElementById("afterImage");
 
@@ -283,4 +318,3 @@ slider.addEventListener("input", function(){
 
 </body>
 </html>
-
