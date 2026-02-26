@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.scrolling-text {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  animation: scrollText 15s linear infinite;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
 <title>DESIGN YOURSELF | Professional Painting Services in bengaluru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,7 +31,9 @@
 body{
     background:#0f0f0f;
     color:white;
-}
+}<div class="scrolling-text">
+  Welcome to DESIGN YOURSELF – Interior & Exterior Painting | Waterproofing | Textile Services
+</div>
 
 /* TOP BAR */
 .top-bar{
@@ -325,6 +343,7 @@ window.onclick = function(event) {
 
 </body>
 </html>
+
 
 
 
