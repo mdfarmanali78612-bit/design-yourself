@@ -10,7 +10,7 @@
 body{
     margin:0;
     font-family:Arial, sans-serif;
-    background: linear-gradient(135deg, #2c3e50, #3b5998, #4b79a1);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color:white;
     overflow-x:hidden;
 }
@@ -31,8 +31,7 @@ body{
 
 .scrolling-text .track{
     white-space:nowrap;
-    display:inline-block;
-    animation: ticker 20s linear infinite;
+    animation:ticker 20s linear infinite;
     font-weight:bold;
 }
 
@@ -41,7 +40,7 @@ body{
     to { transform:translateX(-100%); }
 }
 
-/* Top Contact Bar */
+/* Contact Bar */
 .top-bar{
     position:fixed;
     top:40px;
@@ -60,42 +59,127 @@ body{
     padding:20px;
 }
 
-/* Logo */
 .logo{
-    width:130px;
-    height:130px;
+    width:140px;
+    height:140px;
     border-radius:50%;
     border:4px solid gold;
     object-fit:cover;
 }
 
+.book-btn{
+    padding:14px 30px;
+    background:gold;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.book-btn:hover{
+    transform:scale(1.05);
+}
+
 /* Sections */
 .section{
-    padding:40px 20px;
+    padding:60px 20px;
     text-align:center;
+}
+
+.luxury-title{
+    color:#FFD700;
+    font-size:32px;
+}
+
+.gold-text{
+    color:#FFD700;
+    font-weight:bold;
+}
+
+/* Services */
+.service-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    margin-top:40px;
+}
+
+.service-card{
+    background:rgba(0,0,0,0.5);
+    padding:25px;
+    width:260px;
+    border-radius:12px;
+    border:1px solid gold;
+    transition:0.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px gold;
 }
 
 /* Gallery */
 .gallery img{
-    width:250px;
-    margin:10px;
+    width:260px;
+    margin:15px;
     border-radius:10px;
+    transition:0.3s;
 }
 
-/* Button */
-button{
-    padding:10px 20px;
-    background:gold;
-    border:none;
-    border-radius:5px;
-    font-weight:bold;
-    cursor:pointer;
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* Before After */
+.slider-container{
+    position:relative;
+    max-width:600px;
+    margin:40px auto;
+}
+
+.slider-container img{
+    width:100%;
+    display:block;
+}
+
+.after-img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:50%;
+}
+
+.slider{
+    width:100%;
+    margin-top:10px;
+}
+
+/* WhatsApp Button */
+.whatsapp-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    font-size:28px;
+    padding:15px;
+    border-radius:50%;
+    text-decoration:none;
+    z-index:3000;
+    transition:0.3s;
+}
+
+.whatsapp-float:hover{
+    transform:scale(1.1);
 }
 
 /* Footer */
 footer{
     background:#0D47A1;
-    padding:20px;
+    padding:25px;
     text-align:center;
 }
 
@@ -104,46 +188,98 @@ footer{
 
 <body>
 
-<!-- Running Title -->
 <div class="scrolling-text">
   <div class="track">
     Welcome to DESIGN YOURSELF – Interior & Exterior Painting | Texture Design | Waterproofing | Premium Finish
   </div>
 </div>
 
-<!-- Contact Bar -->
 <div class="top-bar">
 📞 8051943884 | 📧 mdfarmanali78612@gmail.com
 </div>
 
-<!-- Main Section -->
 <div class="main">
-    <img src="logo.png" class="logo" alt="Logo">
+    <img src="logo.png" class="logo">
     <h1>DESIGN YOURSELF</h1>
-    <p>Professional Interior & Exterior Painting Services</p>
-    <button onclick="window.location.href='YOUR_GOOGLE_FORM_LINK'">
-        Book Now
+    <p class="gold-text">Transforming Spaces with Luxury Finishes</p>
+    <br>
+    <button class="book-btn" onclick="window.open('https://forms.gle/qieRyCRLdDHqskfU7','_blank')">
+        📋 Book Now
     </button>
 </div>
 
-<!-- Our Work -->
 <div class="section">
-    <h2>Our Work</h2>
-    <p>We provide high-quality interior painting, exterior painting, texture design and waterproofing solutions with premium finish.</p>
+    <h2 class="luxury-title">OUR PREMIUM SERVICES</h2>
+    <div class="service-grid">
+        <div class="service-card">
+            <h3>Interior Painting</h3>
+            <p>Luxury smooth wall finishes.</p>
+        </div>
+        <div class="service-card">
+            <h3>Exterior Painting</h3>
+            <p>Weather-resistant durable coatings.</p>
+        </div>
+        <div class="service-card">
+            <h3>Texture Design</h3>
+            <p>Modern designer textures.</p>
+        </div>
+        <div class="service-card">
+            <h3>Waterproofing</h3>
+            <p>Terrace & bathroom protection solutions.</p>
+        </div>
+    </div>
 </div>
 
-<!-- Gallery -->
+<div class="section">
+    <h2 class="luxury-title">BEFORE & AFTER</h2>
+    <div class="slider-container">
+        <img src="before.jpg">
+        <img src="after.jpg" class="after-img" id="afterImage">
+        <input type="range" min="0" max="100" value="50" class="slider" id="slider">
+    </div>
+</div>
+
 <div class="section gallery">
-    <h2>Gallery</h2>
-    <img src="work1.jpg" alt="">
-    <img src="work2.jpg" alt="">
-    <img src="work3.jpg" alt="">
+    <h2 class="luxury-title">OUR WORK GALLERY</h2>
+    <img src="work1.jpg">
+    <img src="work2.jpg">
+    <img src="work3.jpg">
 </div>
 
-<!-- Footer -->
+<div class="section">
+    <h2 class="luxury-title">CUSTOMER REVIEWS</h2>
+    <div class="service-grid">
+        <div class="service-card">
+            <p>"Excellent finishing and professional team!"</p>
+            <p class="gold-text">★★★★★</p>
+        </div>
+        <div class="service-card">
+            <p>"My home looks completely transformed."</p>
+            <p class="gold-text">★★★★★</p>
+        </div>
+        <div class="service-card">
+            <p>"Luxury quality and timely completion."</p>
+            <p class="gold-text">★★★★★</p>
+        </div>
+    </div>
+</div>
+
 <footer>
 © 2026 DESIGN YOURSELF | All Rights Reserved
 </footer>
+
+<a href="https://wa.me/918051943884" class="whatsapp-float" target="_blank">
+💬
+</a>
+
+<script>
+const slider = document.getElementById("slider");
+const afterImage = document.getElementById("afterImage");
+
+slider.addEventListener("input", function(){
+    afterImage.style.width = slider.value + "%";
+});
+</script>
 
 </body>
 </html>
